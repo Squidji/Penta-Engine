@@ -1,0 +1,162 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #222;
+	color: white;
+	margin: 0;
+}
+h1, h2 {
+	margin: 0;
+	font-size: 40px;
+}
+
+#tempbutton {
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	font-weight: bold;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+#worldview {
+	margin: auto;
+	width:1000px;
+	height: 700px;
+	margin-top: 50px;
+	align-self: center;
+	border: 1px solid gray;
+}
+#worldview #background, #worldview #buttons, #worldview #dialogue {
+	display: block;
+	position: absolute;
+	width: 1000px;
+	height: 700px;
+}
+#worldview #buttons button {
+	position: absolute;
+	display: block;
+	background-color: #006eff00;
+	border-width: 0;
+	cursor: pointer;
+	padding: 0;
+}
+#worldview #dialogue { filter: blur(0); }
+#worldview #dialogue #textcontainer {
+	position: absolute;
+	left: 85px;
+	bottom: 10px;
+	width: 800px;
+	height: 150px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #1d1d1dd0;
+	border: 5.0px solid black;
+	cursor: pointer;
+}
+#worldview #dialogue #textcontainer #name {
+	height: 40px;
+	border-bottom: 2px solid #777;
+	padding-left: 10px;
+	padding-bottom: 2px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	font-weight: bold;
+}
+#worldview #dialogue #textcontainer #body {
+	height: 100px;
+	padding-left: 20px;
+	padding-right: 10px;
+	font-size: 30px;
+	overflow: hidden;
+}
+
+statbar {
+	display: block;
+	background-color: #222;
+	height: 30px;
+	margin: 10px 0;
+	position: relative;
+	border-radius: 5px;
+}
+statbar i {
+	display: block; height: 30px;
+	background-color: #777;
+	border-radius: 5px 0 0 5px;
+}
+statbar b {
+	position: absolute;
+	line-height: 30px;
+	left: 7px; top: 0;
+	color: #222;
+	font-size: 20px;
+}
+statbar#hp i {background-color: #00cf00;}
+statbar#mp i {background-color: #bd6dff;}
+
+.flex {display: flex;}
+.left, .right {flex: 1;}
+.right {margin-left: 20px;}
+
+#timestamp {
+	position: fixed;
+	top: 15px;
+	right: 0;
+	border-radius: 10px 0 0 10px;
+	background-color: #3b3b3b;
+	border: 4px #777 solid;
+	border-right-width: 0;
+	width: 200px;
+	height: 56px;
+	padding: 10px;
+	font-size: 17px;
+	font-weight: bold;
+	cursor: default;
+}
+#timestamp #date {
+	border-bottom: 2px #777 solid;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+#timestamp #time {font-size: 21px;}
+
+#playermenu {
+	padding: 20px;
+	padding-bottom: 12px;
+	width: 620px;
+	border-radius: 0 10px 10px 0;
+	background-color: #3b3b3b;
+	border-bottom: 8px #00c3ff solid;
+	display: block;
+	position: fixed;
+	top: 30px;
+	left: -660px;
+	transition: left 0.3s ease;
+}
+#playermenu h1 {color: #00c3ff;}
+#playermenu h1 i {
+	font-size: 30px;
+	padding-left: 12px;
+}
+#playermenu #gold {
+	color: gold;
+	font-size: 24px;
+	text-align: right;
+	margin-right: 10px;
+}
+#playermenu statbar {
+	width: 300px;
+}
+
+.buttonlist {
+	display: flex;
+	flex-flow: row wrap;
+	width: 300px;
+}
+.buttonlist div {
+	flex: 0 33%;
+	font-size: 30px;
+	margin-top: 5px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+.buttonlist div:hover {color: #00c3ff;}

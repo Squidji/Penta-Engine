@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RPG Engine</title>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' href='./index.css'/>
+	<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+	<script src='./game_file.js'></script>
+	<script src='./engine.js'></script>
+	<script src='./player.js'></script>
+	<script src='./map.js'></script>
+</head>
+<body>
+
+<div id='tempbutton' onclick='togglePlayermenu()'>TOGGLE MENU</div>
+
+<div id='worldview'>
+	<div id='background'></div>
+	<div id='buttons'></div>
+	<div id='dialogue'>
+		<div id='textcontainer'>
+			<div id='name'></div>
+			<div id='body'></div>
+		</div>
+	</div>
+</div>
+
+<div id='timestamp'>
+	<div id='date'></div>
+	<div id='time'></div>
+</div>
+
+<div id='playermenu'>
+	<div class='flex'>
+		<h1 class='left'></h1>
+		<b class='right' id='gold'></b>
+	</div>
+	<div class='flex'>
+		<div class='left'>
+			<statbar id='hp'></statbar>
+			<statbar id='mp'></statbar>
+		</div>
+		<div class='right'>
+			<div class='buttonlist'>
+				<div>Skills</div>
+				<div>Party</div>
+				<div>Time</div>
+				<div>Items</div>
+				<div>Equip</div>
+				<div>Config</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	loadinit();
+</script>
+
+</body>
+</html>
