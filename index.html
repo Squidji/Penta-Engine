@@ -5,19 +5,21 @@
 	<meta charset='utf-8'>
 	<link rel='stylesheet' href='./index.css'/>
 	<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-	<script src='./game_file.js'></script>
-	<script src='./engine.js'></script>
-	<script src='./player.js'></script>
-	<script src='./map.js'></script>
+	<script src='./testgame.js'></script>
+	<script src='./engine/engine.js'></script>
+	<script src='./engine/player.js'></script>
+	<script src='./engine/map.js'></script>
 </head>
 <body>
 
 <div id='tempbutton' onclick='togglePlayermenu()'>TOGGLE MENU</div>
 
 <div id='worldview'>
-	<div id='background'></div>
-	<div id='buttons'></div>
-	<div id='dialogue'>
+	<div id='background' class='layer'></div>
+	<div id='buttons' class='layer'></div>
+	<div id='timeincrement' class='layer'></div>
+	<div id='dialogue' class='layer'>
+		<div id='img' class='layer'></div>
 		<div id='textcontainer'>
 			<div id='name'></div>
 			<div id='body'></div>
@@ -45,12 +47,16 @@
 				<div>Skills</div>
 				<div>Party</div>
 				<div>Time</div>
-				<div>Items</div>
+				<div onclick='openSubmenu("items")'>Items</div>
 				<div>Equip</div>
 				<div>Config</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+<div id='submenu' class=''>
+	<h1></h1>
 </div>
 
 <script>

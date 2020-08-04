@@ -25,13 +25,21 @@ h1, h2 {
 	margin-top: 50px;
 	align-self: center;
 	border: 1px solid gray;
+	background: repeating-linear-gradient(
+		-45deg,
+		#222,
+		#222 10px,
+		#333 10px,
+		#333 20px
+	  );
 }
-#worldview #background, #worldview #buttons, #worldview #dialogue {
+.layer {
 	display: block;
 	position: absolute;
 	width: 1000px;
 	height: 700px;
 }
+#worldview #background {transition: 0.2s filter;}
 #worldview #buttons button {
 	position: absolute;
 	display: block;
@@ -40,7 +48,6 @@ h1, h2 {
 	cursor: pointer;
 	padding: 0;
 }
-#worldview #dialogue { filter: blur(0); }
 #worldview #dialogue #textcontainer {
 	position: absolute;
 	left: 85px;
@@ -49,8 +56,8 @@ h1, h2 {
 	height: 150px;
 	padding: 10px;
 	border-radius: 10px;
-	background-color: #1d1d1dd0;
-	border: 5.0px solid black;
+	background-color: #222222d0;
+	border: 4px solid #777;
 	cursor: pointer;
 }
 #worldview #dialogue #textcontainer #name {
@@ -69,6 +76,14 @@ h1, h2 {
 	font-size: 30px;
 	overflow: hidden;
 }
+#worldview #timeincrement {
+	display: none;
+	font-size: 50px;
+	line-height: 700px;
+	text-align: center;
+	font-weight: bolder;
+	text-shadow: 0px 0px 10px black;
+}
 
 statbar {
 	display: block;
@@ -77,6 +92,8 @@ statbar {
 	margin: 10px 0;
 	position: relative;
 	border-radius: 5px;
+	overflow: hidden;
+	transition: 0.3s ease;
 }
 statbar i {
 	display: block; height: 30px;
@@ -89,6 +106,23 @@ statbar b {
 	left: 7px; top: 0;
 	color: #222;
 	font-size: 20px;
+}
+statbar a {
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	line-height: 30px;
+	font-weight: bold;
+	height: 30px;
+	background-color: #11111163;
+	opacity: 0;
+	text-align: center;
+	border-radius: 5px;
+	transition: 0.2s;
+}
+statbar a:hover {
+	opacity: 1;
 }
 statbar#hp i {background-color: #00cf00;}
 statbar#mp i {background-color: #bd6dff;}
@@ -120,31 +154,75 @@ statbar#mp i {background-color: #bd6dff;}
 #timestamp #time {font-size: 21px;}
 
 #playermenu {
-	padding: 20px;
+	padding: 15px;
 	padding-bottom: 12px;
-	width: 620px;
+	width: 240px;
 	border-radius: 0 10px 10px 0;
 	background-color: #3b3b3b;
 	border-bottom: 8px #00c3ff solid;
 	display: block;
 	position: fixed;
+	cursor: default;
 	top: 30px;
-	left: -660px;
-	transition: left 0.3s ease;
+	left: 0;
+	transition: 0.3s ease;
+	box-shadow: 0 0 5px black;
+	overflow: hidden;
 }
-#playermenu h1 {color: #00c3ff;}
-#playermenu h1 i {
+#playermenu h1 {
+	color: #00c3ff;
 	font-size: 30px;
+	transition: 0.3s;
+}
+#playermenu h1 i {
+	font-size: 20px;
 	padding-left: 12px;
+	transition: 0.3s;
+}
+#playermenu .buttonlist {
+	display: none;
 }
 #playermenu #gold {
 	color: gold;
-	font-size: 24px;
+	font-size: 20px;
 	text-align: right;
 	margin-right: 10px;
+	transition: 0.3s;
 }
 #playermenu statbar {
+	width: 230px;
+}
+
+#playermenu.open {
+	padding: 20px;
+	width: 620px;
+}
+#playermenu.open h1 {font-size: 40px;}
+#playermenu.open h1 i {font-size: 28px;}
+#playermenu.open #gold {font-size: 24px;}
+#playermenu.open .buttonlist {display: flex;}
+#playermenu.open statbar {
 	width: 300px;
+}
+
+#submenu {
+	display: block;
+	position: fixed;
+	cursor: default;
+	width: 620px;
+	padding: 20px;
+	top: 220px;
+	left: -700px;
+	height: 400px;
+	border-bottom: 8px #00c3ff solid;
+	border-radius: 0 10px 10px 0;
+	background-color: #3b3b3b;
+	box-shadow: 0 0 5px black;
+	transition: 0.3s ease;
+}
+#submenu.items {
+	border-color: #1edd1e;
+	color: #1edd1e;
 }
 
 .buttonlist {

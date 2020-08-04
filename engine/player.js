@@ -1,5 +1,21 @@
 var player = inits.player;
 
+player.heal = function(hp, pastmax) {
+	player.hp[0] += hp;
+	if (!pastmax && player.hp[0] > player.hp[1]) {
+		player.hp[0] = player.hp[1];
+	};
+	player.updateMenu();
+};
+
+player.updateMenu = function() {
+	$('#playermenu h1').html(player.name+'<i>Lv.'+player.level+'</i>');
+	$('#playermenu #gold').html(''+player.gold[0]+'G');
+	statusBar('#playermenu #hp', player.hp, 'HP');
+	statusBar('#playermenu #mp', player.mp, 'MP');
+	$('')
+}
+
 player.getTime = function () {
 	let static = player.time;
 	let date = new Date(static.date[0] + 1990, static.date[1]+1, static.date[2], static.time[0], static.time[1], 0);
@@ -30,10 +46,22 @@ player.getTime = function () {
 	if (re.sm.hour > 12) {
 		re.sm.hour-=12;
 		re.ampm = 'pm';
+	} else if (re.sm.hour === 0) {
+		re.sm.hour = 12;
 	};
 	if ( (''+re.date[0]).endsWith('1') ) {re.ordinal = 'st'};
 	if ( (''+re.date[0]).endsWith('2') ) {re.ordinal = 'nd'};
 	if ( (''+re.date[0]).endsWith('3') ) {re.ordinal = 'rd'};
 
 	return re;
+};
+
+player.passTime = function(minutes) {
+	player.time.time[1] += minutes;
+	while (player.time.time[1] > 60) {
+		player.time.time[0]++;
+		player.time.time[1]-=60;
+	};
+	// upadte days and months based on passed time
+	updateTimestamp();
 };
