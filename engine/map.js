@@ -22,7 +22,7 @@ function moveLocation(path, pass_time) {
 			player.location = path;
 			renderMap();
 			$('#worldview #background').animate({opacity: '1'}, 150);
-		}, 700);
+		}, 600);
 
 	} else {
 		player.location = path;

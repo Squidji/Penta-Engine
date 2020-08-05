@@ -20,11 +20,39 @@ function openSubmenu(menu) {
 		$('#submenu').css('left', '-700px');
 		$('#submenu').css('opacity', '0');
 		$('#submenu').removeClass();
+
 	} else if (menu === 'items') {
-		$('#submenu').addClass('items')
+		$('#submenu').removeClass();
+		$('#submenu').addClass('items');
 		$('#submenu').css('left', '0');
 		$('#submenu').css('opacity', '1');
 		$('#submenu h1').text('Items');
+		$('#submenu .body').html('<div class="itemlist"></div>');
+		itemSubmenu();
+
+	};
+};
+
+function itemSubmenu() {
+	$('#submenu .body .itemlist').empty();
+	let keys = Object.keys(player.items);
+	for (let i=0; i<keys.length; i++) {
+		let dat = items[keys[i]];
+		let num = player.items[keys[i]];
+		let e = $('<div></div>');
+		e.append($('<b></b>').css('background-image', 'url('+dat.icon+')'));
+		e.append(dat.name + '<i>x'+num+'</i>');
+		e.append($('<a></a>').addClass('desc').text(dat.desc));
+
+		e.click( function() {
+			dat.action();
+			if (dat.consumable) {
+				player.removeItem(keys[i]);
+				itemSubmenu();
+			};
+		});
+
+		$('#submenu .body .itemlist').append(e);
 	};
 };
 

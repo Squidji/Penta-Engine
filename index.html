@@ -9,10 +9,9 @@
 	<script src='./engine/engine.js'></script>
 	<script src='./engine/player.js'></script>
 	<script src='./engine/map.js'></script>
+	<script src='./engine/battle.js'></script>
 </head>
 <body>
-
-<div id='tempbutton' onclick='togglePlayermenu()'>TOGGLE MENU</div>
 
 <div id='worldview'>
 	<div id='background' class='layer'></div>
@@ -34,7 +33,7 @@
 
 <div id='playermenu'>
 	<div class='flex'>
-		<h1 class='left'></h1>
+		<h1 class='left' onclick='togglePlayermenu()'></h1>
 		<b class='right' id='gold'></b>
 	</div>
 	<div class='flex'>
@@ -44,12 +43,12 @@
 		</div>
 		<div class='right'>
 			<div class='buttonlist'>
-				<div>Skills</div>
-				<div>Party</div>
-				<div>Time</div>
 				<div onclick='openSubmenu("items")'>Items</div>
+				<div>Skills</div>
 				<div>Equip</div>
-				<div>Config</div>
+				<div>Party</div>
+				<div>Quest</div>
+				<div>Time</div>
 			</div>
 		</div>
 	</div>
@@ -57,6 +56,9 @@
 
 <div id='submenu' class=''>
 	<h1></h1>
+	<div class='body'>
+
+	</div>
 </div>
 
 <script>

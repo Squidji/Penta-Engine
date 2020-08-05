@@ -19,9 +19,10 @@ inits.player = {
 		time: [14, 0], //hr mn
 		date: [0, 8, 27] //27th aug, 1990
 	},
-	items: [
-		'shitpotion'
-	]
+	items: {
+		'shitpotion': 2,
+		'specialtea': 5
+	}
 };
 
 inits.party = [
@@ -101,8 +102,19 @@ inits.encounters = {
 inits.items = {
 	'shitpotion': {
 		name: 'Shitty Potion',
+		desc: 'Heals 10hp to a party member.',
+		icon: './img/icons/shittypotion.png',
 		locations: ['menu', 'battle'],
-		action: function() { player.heal(10, true) }
+		action: function() { player.heal(10) },
+		consumable: true
+	},
+	'specialtea': {
+		name: 'Special Tea',
+		desc: 'Recoveres 10mp to a party member. Can go past max MP.',
+		icon: './img/icons/specialtea.png',
+		locations: ['menu', 'battle'],
+		action: function() { player.recover(10, true) },
+		consumable: true
 	}
 };
 

@@ -8,13 +8,29 @@ player.heal = function(hp, pastmax) {
 	player.updateMenu();
 };
 
+player.recover = function(mp, pastmax) {
+	player.mp[0] += mp;
+	if (!pastmax && player.mp[0] > player.mp[1]) {
+		player.mp[0] = player.mp[1];
+	};
+	player.updateMenu();
+};
+
+player.removeItem = function(id) {
+	if (Object.keys(player.items).includes(id)) {
+		player.items[id] -= 1;
+		if (player.items[id] === 0) {
+			delete player.items[id];
+		}
+	};
+};
+
 player.updateMenu = function() {
 	$('#playermenu h1').html(player.name+'<i>Lv.'+player.level+'</i>');
 	$('#playermenu #gold').html(''+player.gold[0]+'G');
 	statusBar('#playermenu #hp', player.hp, 'HP');
 	statusBar('#playermenu #mp', player.mp, 'MP');
-	$('')
-}
+};
 
 player.getTime = function () {
 	let static = player.time;
